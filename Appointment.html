@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="images/l1.jpg" type="image/svg+xml">
+<!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+   <!-- 
+    - google font link
+  -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link
+   href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+   rel="stylesheet"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+   -->
+
+   <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+
+    
+<script>
+  function SubForm (){
+    $.ajax({
+      url:"https://api.apispreadsheets.com/data/XpTLfPT9QFeT2SNv/",
+      type:"post",
+      data:$("#appointmentForm").serializeArray(),
+      success: function(){
+        alert("Form Data Submitted :)")
+      },
+      error: function(){
+        alert("There was an error :(")
+      }
+    });
+  }
+</script> 
+
+</head>
+
+<body class="body">
+    
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container cont">
+
+        <ul class="header-top-list">
+
+          <li>
+            <a href="mailto:info@Medicare.com" class="header-top-link">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <span>info@Medicare.com</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="header-top-link">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address class="mt-3">15/A, Nest Tower, NYC</address>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <ul class="header-top-social-list mt-2">
+
+            <li>
+              <a href="http://www.facebook.com" class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="http://www.twitter.com" class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="http://www.instagram.com" class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="http://www.linkedin.com" class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+          <a href="sign in.html">
+            <button class="header-top-btn mb-2">Sign In</button>
+          </a>
+          <a href="sign up.html">
+          <button class="header-top-btn mb-2">Sign Up</button>
+        </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <a href="#" class="logo">
+          <img src="images/l2.png" alt="Medicare logo">
+        </a>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="images/l2.png" alt="Medicare logo">
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            </div>
+            
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+          
+            </ul>
+          </div>
+
+        </nav>
+
+        <div class="header-bottom-actions">
+
+            <div  class="home-btn">
+            <a href="index.html">
+                <button class="btn" data-nav-open-btn>Back TO Home</button>
+              </a>         
+            </div> 
+
+          <a href="#" class="app-btn">
+            <button class="btn">Appointment</button>
+          </a>         
+
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+<!-- Form -->
+<section>
+<div class="form">
+
+        <div class="formbold-main-wrapper">
+            
+            <div class="formbold-form-wrapper">
+              <div class="app">
+              <form action="" id="appointmentForm">
+
+<h1 class="section-subtitle">Book appointment</h1>
+
+                <div class="formbold-mb-5 formbold-pt-3">
+                  
+                  <div class="flex flex-wrap formbold--mx-3">
+                    <div class="w-full sm:w-half formbold-px-3">
+                      <div class="formbold-mb-5">
+                        <label for="Department" class="formbold-form-label"> Department </label>
+                        <select required id="cd" name="Department" onchange="configureDropDownLists(this,document.getElementById('cd2'))" placeholder="Choose Department" class="formbold-form-input">
+                          <option value="Choose Department">Choose Department</option>
+                          <option value="Medical_Genetics">Medical Genetics</option>
+                          <option value="Trauma_and_orthopaedic">Trauma and orthopaedic</option>
+                          <option value="Dental">Dental</option>
+                          <option value="Respirology">Respirology</option>
+                          <option value="Obstetrics">Obstetrics & Gynaecology</option>
+        images                  <option value="Cardiology">Cardiology</option>
+                          <option value="​Neurology">​Neurology</option>
+                          <option value="General_Medicine">General Medicine</option>
+                        </select>
+
+                      </div>
+                    </div>
+                    <div class="w-full sm:w-half formbold-px-3">
+                      <div class="formbold-mb-5">
+                        <label for="Doctor" class="formbold-form-label">Doctor</label>
+                        <select id="cd2" name="Doctor" placeholder="Choose Doctor" class="formbold-form-input">
+                         
+                        </select>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="formbold-mb-5">
+                  <label for="name" class="formbold-form-label"> First Name* </label>
+                  <input oninput="firstNameValidation();"
+                    type="text" required  name="FirstName" id="firstName" placeholder="First Name" class="formbold-form-input"/>
+                    <div id="first-name-err" class="error"></div>
+                  </div>
+
+                  <div class="formbold-mb-5">
+                    <label for="name" class="formbold-form-label"> Last Name* </label>
+                    <input oninput="lastNameValidation();"
+                      type="text" required name="LastName" id="lastName" placeholder="Last Name" class="formbold-form-input"/>
+                      <div id="last-name-err" class="error"></div>
+                    </div>
+
+                <div class="formbold-mb-5">
+                  <label for="phone" class="formbold-form-label"> Phone Number* </label>
+                  <input oninput="mobileNumberValidation();" id="mobileNumber" type="text" required name="phone" id="phone" placeholder="Enter your phone number" class="formbold-form-input"/>
+                  <div id="mobile-number-err" class="error"></div>
+                </div>
+
+                <div class="formbold-mb-5">
+                  <label for="email" class="formbold-form-label"> Email Address* </label>
+                  <input oninput="emailAddressValidation();" id="emailAddress" type="email" required name="email" id="email"   placeholder="Enter your email" class="formbold-form-input" />
+                  <div id="email-err" class="error"></div>
+                </div>
+
+                <div class="flex flex-wrap formbold--mx-3">
+                  <div class="w-full sm:w-half formbold-px-3">
+                    <div class="formbold-mb-5">
+                      <label for="date" class="formbold-form-label"> Date </label>
+                      <input required
+                        type="date"
+                        name="date"
+                        id="date"
+                        class="formbold-form-input"
+                      />
+                    </div>
+                  </div>
+                  <div class="w-full sm:w-half formbold-px-3">
+                    <div class="formbold-mb-5">
+                      <label for="time" class="formbold-form-label"> Time </label>
+                      <div class="radio-btn">
+                      <input type="radio" id="morning" name="time" checked>
+                     <label for="morning">Morning</label>
+                     <input type="radio" id="evening" name="time">
+                     <label for="evening">Evening</label></div>
+                    </div>
+                  </div>
+                </div>
+          
+           <div class="formbold-mb-5">
+                  <label for="name" class="formbold-form-label">Your Message</label>
+                  <textarea style="height:100px;resize: vertical;" name="message" placeholder="Write something.." class="formbold-form-input"> </textarea> 
+                </div>
+
+              </form>
+
+              <div class="appointment">
+                <button class="formbold-btn btn" onclick="SubForm()" value="submit">Book Appointment</button>
+              </div>
+              </div>
+
+            </div>
+          </div>
+        </div>       
+
+      </section>
+
+
+
+      <!-- footer -->
+      <footer class="footer">
+
+        <div class="footer-top" id="contact">
+          <div class="container">
+    
+            <div class="footer-brand">
+    
+              <a href="#" class="logo">
+                <img src="images/l2.png" alt="Medicare logo">
+              </a>
+    
+              <p class="section-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos vel, ducimus optio odio nisi repellat.
+               </p>
+    
+              <ul class="contact-list-app">
+    
+                <li>
+                  <a href="#" class="contact-link">
+                   <i class="fas fa-map-marker-alt"></i>
+                    <address>Medicare Hospital, Karnataka, India</address>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="contact-link">
+                    <i class="fa fa-phone"></i>
+    
+                    <span>+0123-456789</span>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="mailto:contact@Medicare.com" class="contact-link">
+                    <i class="fa fa-envelope"></i>
+    
+                    <span>contact@Medicare.com</span>
+                  </a>
+                </li>
+    
+              </ul> 
+    
+            </div>
+    
+            <div class="footer-link-box">
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Useful Link</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">About</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Blog</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Press Releases</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Locations Map</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Services</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Insurances</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Schemes</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                </li>
+    
+                <li>
+                  <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                </li>
+    
+                <li>
+                    <a href="feedback.html" class="footer-link">Patient Feedback</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Contact Us</p>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="footer-link">
+                    <i class="fa fa-phone"></i> Emergency: 12345 67898</a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="footer-link">
+                    <i class="fa fa-phone"></i> Help Desk: 21345 76898</a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="footer-link">
+                    <i class="fa fa-phone"></i> Enquiry: 67898 12345</a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="footer-link">
+                    <i class="fa fa-phone"></i> Customer Care: 78898 12354</a>
+                </li>
+    
+                <li>
+                <ul class="social-list">
+    
+                  <li>
+                    <a href="http://www.facebook.com" class="social-link" target="_blank">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a href="http://www.twitter.com" class="social-link" target="_blank">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a href="http://www.linkedin.com" class="social-link" target="_blank">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a href="http://www.instagram.com" class="social-link" target="_blank">
+                      <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                  </li>
+      
+                </ul>
+    
+              </ul>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <div class="container">
+    
+            <p class="copyright">
+              &copy; 2023 <a href="#">Medicare</a>. All Rights Reserved
+            </p>
+    
+          </div>
+        </div>
+    
+      </footer> 
+     <!-- footer exit-->
+
+          <!-- custom js link
+  -->
+  <script src="main.js"></script>
+
+
+  <script>
+    function configureDropDownLists(cd,cd2) {
+  var medical = ['Choose Doctor','Dr.Shivram Desai', 'Dr. Geeta Pisal', 'Dr. Ramesh Gupta','Dr. Vedant Pol'];
+  var trauma = ['Choose Doctor','Dr. Shantanu Yadav', 'Dr. Shankar Reddy', 'Dr. Suresh Modi','Dr. Deepak Signh'];
+  var dental = ['Choose Doctor','Dr. Seetal Verma', 'Dr. Jay Patel', 'Dr. Veer Shrama','Dr. Tanya Mehra'];
+var respirology=['Choose Doctor','Dr. Ashok Savant','Dr. Shakti Roy','Dr. Kiya Shrama','Dr. Tina Gupta'];
+var obstetrics =['Choose Doctor','Dr. Nikil Shinde','Dr. Sushma Joshi','Dr. Diya Nikam','Dr. Sohan Patil'];
+var cardiology=['Choose Doctor','Dr. Shakti Roy','Dr. Sanjay Mehra','Dr. Kiya Shrama','Dr. Tina Gupta'];
+var  medicine=['Choose Doctor','Dr. Aniket Joshi','Dr. Raj Kapur','Dr.Nil Sharma','Dr.Tanmay Shah'];
+var neuro=['Choose Doctor','Dr. Raman Jha','Dr. Advik Varma','Dr. Guru Singh','Dr. Priya Patane'];
+  switch (cd.value) {
+      case 'Medical_Genetics':
+          cd2.options.length = 0;
+          for (i = 0; i < medical.length; i++) {
+              createOption(cd2, medical[i], medical[i]);
+          }
+          break;
+
+      case 'Trauma_and_orthopaedic':
+          cd2.options.length = 0; 
+      for (i = 0; i < trauma.length; i++) {
+          createOption(cd2, trauma[i], trauma[i]);
+          }
+          break;
+          
+      case 'Dental':
+          cd2.options.length = 0;
+          for (i = 0; i < dental.length; i++) {
+              createOption(cd2, dental[i], dental[i]);
+          }
+          break;
+
+          case 'Respirology':
+          cd2.options.length = 0; 
+      for (i = 0; i < respirology.length; i++) {
+          createOption(cd2, respirology[i], respirology[i]);
+          }
+          break;
+
+          case 'Obstetrics':
+          cd2.options.length = 0; 
+      for (i = 0; i < obstetrics.length; i++) {
+          createOption(cd2, obstetrics[i], obstetrics[i]);
+          }
+          break;
+
+          case 'Cardiology':
+          cd2.options.length = 0; 
+      for (i = 0; i < cardiology.length; i++) {
+          createOption(cd2, cardiology[i], cardiology[i]);
+          }
+          break;
+
+          case '​Neurology':
+          cd2.options.length = 0;
+          for (i = 0; i < neuro.length; i++) {
+              createOption(cd2, neuro[i], neuro[i]);
+          }
+          break;
+
+
+          case 'General_Medicine':
+          cd2.options.length = 0;
+          for (i = 0; i < medicine.length; i++) {
+              createOption(cd2, medicine[i], medicine[i]);
+          }
+          break;
+
+
+          default:
+              cd2.options.length = 0;
+          break;
+  }
+
+}
+
+  function createOption(cd, text, value) {
+      var opt = document.createElement('option');
+      opt.value = value;
+      opt.text = text;
+      cd.options.add(opt);
+  }
+
+// Validation
+
+document.getElementById("appointmentForm").onsubmit=function(e){
+
+  
+firstNameValidation();
+lastNameValidation();
+emailAddressValidation();
+mobileNumberValidation();
+
+passwordValidation();
+confirmPasswordValidation();
+
+if(firstNameValidation()==true && 
+  lastNameValidation()==true && 
+  emailAddressValidation() == true && 
+  mobileNumberValidation()==true && 
+  passwordValidation()==true && 
+  confirmPasswordValidation()==true){
+  return true;
+}else{
+  return false;
+}
+}
+
+
+// First Name Validation
+var firstName= document.getElementById("firstName");
+
+var firstNameValidation=function(){
+
+   firstNameValue=firstName.value.trim(); 
+   validFirstName=/^[A-Za-z]+$/;
+   firstNameErr=document.getElementById('first-name-err');
+
+   if(firstNameValue=="")
+   {
+    firstNameErr.innerHTML="First Name is required";
+
+   }else if(!validFirstName.test(firstNameValue)){
+     firstNameErr.innerHTML="First Name must be only string without white spaces";
+   }else{
+     firstNameErr.innerHTML="";
+     return true;
+    
+   }
+}
+
+firstName.oninput=function(){
+   
+   firstNameValidation();
+}
+
+  // Last Name Validation
+  var lastName= document.getElementById("lastName");
+
+  var lastNameValidation= function(){
+
+   lastNameValue=lastName.value.trim(); 
+   validLastName=/^[A-Za-z]+$/;
+   lastNameErr=document.getElementById('last-name-err');
+
+   if(lastNameValue=="")
+   {
+    lastNameErr.innerHTML="Last Name is required";
+
+   }else if(!validLastName.test(lastNameValue)){
+     lastNameErr.innerHTML="Last Name must be only string without white spaces";
+   }else{
+     lastNameErr.innerHTML="";
+     return true;
+   }
+  }
+
+lastName.oninput=function(){
+
+   lastNameValidation();
+}
+
+ // Email Address Validation
+ var emailAddress= document.getElementById("emailAddress");;
+ var emailAddressValidation= function(){
+
+  emailAddressValue=emailAddress.value.trim(); 
+   validEmailAddress=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   emailAddressErr=document.getElementById('email-err');
+
+   if(emailAddressValue=="")
+   {
+    emailAddressErr.innerHTML="Email Address is required";
+
+   }else if(!validEmailAddress.test(emailAddressValue)){
+     emailAddressErr.innerHTML="Email Addre must be in valid formate with @ symbol";
+   }else{
+     emailAddressErr.innerHTML="";
+     return true;
+   }
+
+ }
+
+emailAddress.oninput=function(){
+
+   emailAddressValidation();
+}
+
+ // Mobile Number Validation
+ var mobileNumber= document.getElementById("mobileNumber");
+
+ var mobileNumberValidation = function(){
+
+   mobileNumberValue=mobileNumber.value.trim(); 
+   validMobileNumber=/^[0-9]*$/;
+   mobileNumberErr=document.getElementById('mobile-number-err');
+
+   if(mobileNumberValue=="")
+   {
+    mobileNumberErr.innerHTML="Mobile Number is required";
+
+   }else if(!validMobileNumber.test(mobileNumberValue)){
+     mobileNumberErr.innerHTML="Mobile Number must be a number";
+   }else if(mobileNumberValue.length!=10){
+
+      mobileNumberErr.innerHTML="Mobile Number must have 10 digits";
+   }
+   else{
+     mobileNumberErr.innerHTML="";
+     return true;
+   }
+
+ }
+mobileNumber.oninput=function(){
+
+   mobileNumberValidation();
+}
+
+
+// validation on submit
+
+
+document.getElementById("appointmentForm").onsubmit=function(e){
+
+  
+  firstNameValidation();
+  lastNameValidation();
+  emailAddressValidation();
+  mobileNumberValidation();
+  passwordValidation();
+  confirmPasswordValidation();
+
+  if(firstNameValidation()==true && 
+    lastNameValidation()==true && 
+    emailAddressValidation() == true && 
+    mobileNumberValidation()==true && 
+    passwordValidation()==true && 
+    confirmPasswordValidation()==true){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+</script> 
+
+<!-- jQuery link -->
+
+	
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</body>
+</html>
+
+
